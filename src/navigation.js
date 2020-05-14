@@ -3,20 +3,16 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Link, Redirect
 } from "react-router-dom";
 
 class Navigation extends React.Component {
     constructor(props) {
         super(props);
-    }
-
-    handleClick(text) {
-        window.location.assign('/' + text);
+        this.state = {redirect: '/'}
     }
 
     exitButton(text) {
-        window.location.assign('/' + text);
         localStorage.setItem('login','false');
     }
 
@@ -25,18 +21,19 @@ class Navigation extends React.Component {
             <React.Fragment>
                 <header>
                     <nav id="navigation">
-                        <button onClick={this.handleClick.bind(this, '')} className="logo-company"><img src={'assets/img/logo.png'}/></button>
+                        <Link to='/' className="logo-company"><img src={'assets/img/logo.png'}/></Link>
                         <div className="about-us">
                             <a href="#advantages">Преимущества</a>
                             <a href="#reviews">Отзывы</a>
                             <a href="#consultation">Консультация</a>
                             <a href="#cases">Кейсы</a>
                             <a href="#contacts">Контакты</a>
-                            <button onClick={this.handleClick.bind(this, 'news')}>Новости</button>
-                            <button onClick={this.handleClick.bind(this, 'profile')}>Профиль</button>
+                            <Link to='/news'>Новости</Link>
+                            <Link to='/profile'>Профиль</Link>
                         </div>
                         <a href="#contacts" className="contact-us"><img src={'assets/img/call-request.png'}/></a>
-                        <button className='exit-btn' onClick={this.exitButton.bind(this, '')}>Выйти</button>
+                        <Link className="exit-btn" style={{"color": "#ffffff","text-decoration":"none", "cursor":"pointer"}}
+                              onClick={this.exitButton.bind(this)} to='/'>Выйти</Link>
                         <div className="hamburger-menu">
                             <input id="menu__toggle" type="checkbox"/>
                             <label className="menu__btn" htmlFor="menu__toggle">
@@ -48,8 +45,9 @@ class Navigation extends React.Component {
                                 <li><a className="menu__item" href="#consultation">Консультация</a></li>
                                 <li><a className="menu__item" href="#cases">Кейсы</a></li>
                                 <li><a className="menu__item" href="#contacts">Контакты</a></li>
-                                <li><button className="menu__item" onClick={this.handleClick.bind(this, 'news')}>Новости</button></li>
-                                <li><button className="menu__item" onClick={this.handleClick.bind(this, 'profile')}>Профиль</button></li>
+                                <li><Link className="menu__item" to='/news'>Новости</Link></li>
+                                <li><Link className="menu__item" to='/profile'>Профиль</Link></li>
+                                <li><Link className="menu__item" onClick={this.exitButton.bind(this)} to='/'>Выйти</Link></li>
                             </ul>
                         </div>
                     </nav>

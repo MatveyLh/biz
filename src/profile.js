@@ -1,16 +1,21 @@
 import React from "react";
-
+import { Redirect } from "react-router-dom";
 class Profile extends React.Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {redirect: "/login"}
+    }
     render() {
-        if (localStorage.getItem('login') !== 'true') window.location.assign('/' + 'login');
         let body = document.getElementsByTagName('body');
         body[0].style = 'background-image: url("./assets/img/earth2.png"); background-repeat: no-repeat;\n' +
             '  background-position: left 900px top 100px;\n' +
             '  background-size: initial;';
+        if (localStorage.getItem('login') !== 'true') {
+            return <Redirect to={this.state.redirect} />
+        }
         return (
             <section className='profile-info'>
-                <img src={'./assets/img/hackerman.png'}/>
+                <img src={'./assets/img/hackerman.PNG'}/>
                 <div className='profile-info__description'>
                     <div className='username'>
                         <p>Имя Пользователя: </p>

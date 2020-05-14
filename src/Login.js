@@ -1,9 +1,11 @@
 import React from "react";
-
+import { Redirect } from "react-router-dom";
 class Login extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {username: ['admin','test'], password: [12345,123], userValue: '', passValue: ''};
+        this.state = {username: ['admin','test'], password: [12345,123], userValue: '', passValue: '', redirect: "/profile",
+        refresh: false
+        };
     }
 
     handleChangeUsername(event) {
@@ -22,14 +24,14 @@ class Login extends React.Component {
                 localStorage.setItem('login','true');
                 localStorage.setItem('username',this.state.username[i]);
                 localStorage.setItem('email',this.state.username[i] + '@gmail.com');
-                window.location.assign('/' + 'profile')
+                /*window.location.assign('/' + 'profile')*/
+                this.setState({refresh: !this.state.refresh});
             }
         }
         if (localStorage.getItem('login') !== 'true') {
             let inputs = document.getElementsByTagName('input');
             for (let i of inputs) {
                 i.style = 'border: 1px solid #FF0000';
-                console.log(11)
             }
             if (!document.querySelector('.wrong-span-message')) {
                 let span = document.createElement('span');
@@ -44,7 +46,9 @@ class Login extends React.Component {
     }
 
     render() {
-
+        if (localStorage.getItem('login') === 'true') {
+            return <Redirect to={this.state.redirect} />
+        }
         let body = document.getElementsByTagName('body');
         body[0].style = 'background-image: url("./assets/img/earth2.png"); background-repeat: no-repeat;\n' +
             '  background-position: left 900px top 100px;\n' +

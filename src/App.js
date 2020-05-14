@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
+import $ from "jquery";
 import OwlCarousel from 'react-owl-carousel';
+
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import Navigation from "./navigation";
@@ -50,18 +52,19 @@ class App extends React.Component {
 
     render() {
         return (
-            <Router>
+            <Router basename={process.env.PUBLIC_URL}>
                 <Navigation/>
-                <Route exact={true} path='/news' component={News}/>
-                <Route exact={true} path='/profile' component={Profile}/>
-                <Route exact={true} path='/login' component={Login}/>
-                <Route exact={true} path='/'>
+                <Route  path='/news' component={News}/>
+                <Route  path='/profile' component={Profile}/>
+                <Route  path='/login' component={Login}/>
+                <Route exact path='/'>
                     <Content/>
                     <FooterContent/>
                     <PageMap/>
                     <Footer/>
                 </Route>
             </Router>
+
         );
     }
 }

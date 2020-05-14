@@ -542,8 +542,76 @@ body nav .hamburger-menu #menu__toggle:checked ~ .menu__box {
   visibility: visible;
   left: 0;
 }
+body .login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("./img/rocket.png");
+  background-repeat: no-repeat;
+  background-position: left -130px top 0;
+  height: 72vh;
+}
+body .login-form input {
+  width: 220px;
+  height: 40px;
+  background-size: 8%!important;
+  padding-left: 30px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background-color: #000000;
+}
+body .login-form .submit-login {
+  padding-left: 0;
+  cursor: pointer;
+  border: 1px solid #ffffff!important;
+}
+body .login-title {
+  color: #ffffff;
+  font-size: 45px;
+  text-align: center;
+}
+body .login-form label {
+  color: #ffffff;
+}
+body .login-form div {
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+body .profile-info {
+  color: #ffffff;
+  background-image: url("./img/rocket.png");
+  background-repeat: no-repeat;
+  background-position: left -130px top 0;
+  height: 75vh;
+}
+body .profile-info img {
+  display: flex;
+  margin: 75px auto 0 auto;
+  width: 25%;
+}
+body .profile-info .profile-info__description {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+body .profile-info .profile-info__description > div {
+  display: flex;
+  justify-content: space-between;
+}
+body nav .exit-btn {
+  margin-top: -10px;
+  font-size: 13px;
+  cursor: pointer;
+}
 
 @media only screen and (min-width: 320px) and (max-width: 998px) {
+  body nav .exit-btn {
+    display: none;
+  }
   nav .hamburger-menu {
     display: block!important;
   }
@@ -556,7 +624,7 @@ body nav .hamburger-menu #menu__toggle:checked ~ .menu__box {
   }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 480px) {
+@media only screen and (min-width: 320px) and (max-width: 560px) {
   body {
     background-position: left 280px top 1400px;
   }
@@ -626,69 +694,4 @@ body nav .hamburger-menu #menu__toggle:checked ~ .menu__box {
     justify-content: center!important;
     width: 100%!important;
   }
-}
-body .login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-image: url("./img/rocket.png");
-  background-repeat: no-repeat;
-  background-position: left -130px top 0;
-  height: 72vh;
-}
-body .login-form input {
-  width: 220px;
-  height: 40px;
-  background-size: 8%!important;
-  padding-left: 30px;
-  border: 1px solid #ffffff;
-  color: #ffffff;
-  background-color: #000000;
-}
-body .login-form .submit-login {
-  padding-left: 0;
-  cursor: pointer;
-  border: 1px solid #ffffff!important;
-}
-body .login-title {
-  color: #ffffff;
-  font-size: 45px;
-  text-align: center;
-}
-body .login-form label {
-  color: #ffffff;
-}
-body .login-form div {
-  display: flex;
-  width: 40%;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-}
-body .profile-info {
-  color: #ffffff;
-  background-image: url("./img/rocket.png");
-  background-repeat: no-repeat;
-  background-position: left -130px top 0;
-  height: 75vh;
-}
-body .profile-info img {
-  display: flex;
-  margin: 75px auto 0 auto;
-  width: 25%;
-}
-body .profile-info .profile-info__description {
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-}
-body .profile-info .profile-info__description > div {
-  display: flex;
-  justify-content: space-between;
-}
-body nav .exit-btn {
-  margin-top: -10px;
-  font-size: 13px;
-  cursor: pointer;
 }
